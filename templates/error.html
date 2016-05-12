@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title></title>
+</head>
+
+<body>
+    <center>
+        <h1 class="errorTitle">ERROR</h1>
+        <label class="errorLabel">There was en error with process please go back home</label>
+        <br />
+        <p style="font-family: 'Open Sans', sans-serif;">{{error}}</p>
+        <br />
+        <a class="link" href="/">Go back to home</a>
+    </center>
+</body>
+
+</html>
