@@ -1,14 +1,17 @@
-
-try:
-    import matplotlib.pyplot as plt
-except:
-    raise
-
 import networkx as nx
 import itertools
 
 G=nx.Graph()
 
+def getfor(formula):
+    formula = formula[1:-1]
+    clauses = formula.split("),(")
+    tuplas = []
+    for clause in clauses:
+        clause = tuple(map(int,clause.split(",")))
+        tuplas.append(clause)
+    return tuplas
+        
 def connected(tup):
     unconnected = list(tup)
     flag = True
@@ -20,7 +23,8 @@ def connected(tup):
                 flag = False
     return flag
         
-def create(g):
+def create(formula):
+    g = getfor(formula)
     G.add_edges_from(g)
     max_len_clique = 0;
     max_clique = []
@@ -32,10 +36,4 @@ def create(g):
             if(len(tup)>max_len_clique):
                 max_clique = tup;
                 max_len_clique = len(tup)
-    nx.draw(G)
-    plt.savefig("simple_path.png") # save as png
-    plt.show() # display
-    print max_clique
-
-if __name__ == "__main__":
-    create([(0,1),(0,3),(0,4),(1,3),(1,4),(2,4),(2,5),(3,4),(4,5),(5,8),(6,7),(7,4),(7,8)])
+    return max_clique
