@@ -3,15 +3,6 @@ import itertools
 
 G=nx.Graph()
 
-def getfor(formula):
-    formula = formula[1:-1]
-    clauses = formula.split("),(")
-    tuplas = []
-    for clause in clauses:
-        clause = tuple(map(int,clause.split(",")))
-        tuplas.append(clause)
-    return tuplas
-        
 def connected(tup):
     unconnected = list(tup)
     flag = True
@@ -23,8 +14,7 @@ def connected(tup):
                 flag = False
     return flag
         
-def create(formula):
-    g = getfor(formula)
+def create(g):
     G.add_edges_from(g)
     max_len_clique = 0;
     max_clique = []

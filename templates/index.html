@@ -1,9 +1,14 @@
-<!DOCTYPE html>
-<html>
-
-<head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Clique Problem</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/4.1.1/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="https://code.jquery.com/jquery-1.11.2.min.js" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript">
         var $SCRIPT_ROOT = {
@@ -15,14 +20,58 @@
 </head>
 
 <body>
-        <form action="" method=post>
-            <p>
-                <input name="clauses" type=text>
-                <input class="btn myButton"type=submit value=Search>
-        </form>
+    <div class="container">
+    <center>
+        <div class="jumbotron">
+        <h1>Problema del maximo Clique en un grafo</h1>
+        </div>
         <h1>{{clausula}}</h1>
         <h2>{{maxclique}}</h2>
+        <form action="" method=post>
+                <div class="form-group">
+                <label for="clauses">Clauses</label>
+                <input type="text" class="form-control" id="clauses" name="clauses" placeholder="Clauses">
+                  </div>
+                
+                <br>
+                <input class="btn btn-lg btn-primary" name='submit' type=submit value='Fuerza Bruta'>
+                <input class="btn btn-lg btn-primary" name='submit' type=submit value='Optimizado'>
+        </form>
+        </center>
+        <h1>Inserte en el cuadro blanco una instancia del problema</h1>
+        <h3>El input debe tener el siguiente formato:</h3>
+                <ul>
+                    <li>
+                       Lo que va dentro del parentesis representa (Numero del nodo, nodo al que se conecta) separados por coma.     
+                    </li>
+                    <li>
+                        Cada par de enteros va entre parentesis.    
+                    </li>
+                    <li>
+                        inalmente, todas tuplas van separadas por comas, sin espacios.
+                    </li>
+                </ul>
+                <p></p>
+                
+                
 
+        <h2>Por ejemplo:</h2>
+        <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="well">
+                (1,2),(1,3),(2,1),(2,3),(3,1),(3,2),(3,4),(3,10),(4,3),(4,10),(4,5),(4,6),(4,8),(4,9),(5,4),(5,10),(5,6),(5,8),(5,9),(6,4),(6,5),(6,7),(6,8),(6,9),(6,10),(7,6),(7,8),(8,7),(8,4),(8,10),(8,5),(8,6),(8,9),(9,4),(9,5),(9,6),(9,8),(9,10),(10,4),(10,5),(10,6),(10,8),(10,9)
+            </div>
+        </div>
+        </div>
+        <p>
+        <h2>Hecho por:</h2>
+        <div class="jumbotron">
+            
+            <p>Joel Lara Quintana</p>
+            <p>Esteban Gil Martinez</p>
+            <p>Adrian Flores Garcia</p>
+        </div>
+</div>
 </body>
 
 </html>
